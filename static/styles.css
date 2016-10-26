@@ -1,0 +1,17 @@
+/* css styling for FlaskApp#1 */
+
+.title-font{
+	font-family: "Verdana";
+}
+
+.layout-1{
+	border: 1px solid black;
+	/*max-width: 33.333%;*/
+	margin: 0 auto;
+	text-align: center;
+}
+
+#exp{
+	background-color:pink;
+}
+

@@ -1,0 +1,26 @@
+<!-- Restaurants.html, full restaurants list -->
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1 class = title-font> Full Restaurant List </h1>
+
+    {% for restaurant in restaurants %}
+        <h1>    
+        {{restaurant.name}} </br>
+        <a href='{{url_for('restaurantMenu', restaurant_id = restaurant.id)}}'> Look at {{restaurant.name}}'s Menu </a>
+        {% for item in items %}
+        {% if item.restaurant_id == restaurant.id %}
+        <ul>
+        <li>
+            {{item.name}} - {{item.course}} : {{item.price}} </br>
+    
+        </li>
+        </ul>
+    
+        {% endif %}
+        {% endfor %}
+        </h1>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- edit menu item form -->
+
+<html><body>
+
+<h1> Restaurant Name: {{restaurant.name}} </h1>
+<h1> Edit Menu Item Name : {{menu_item.name}} </h1>
+
+<form action = "{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=menu_item.id)}}" method='post'>
+
+<p> Change Menu Item Name: </p>
+<input type = 'text' size='30' name='name'>
+<input type = 'submit' value = 'Create'>
+
+</form>
+
+</body></html>

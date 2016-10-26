@@ -1,0 +1,23 @@
+<!-- delete item from menu -->
+<html><body>
+
+<h1>Restaurant Name: {{restaurant.name}}</h1>
+<h1>Do you want to delete menu: {{menuItem.name}}?</h1>
+<h1>Type 'yes' or 'no'</h1>
+
+<form action="{{url_for('deleteMenuItem',restaurant_id=restaurant.id, menu_id = menuItem.id)}}" method='post' >
+
+<p> Delete? </p>
+<p> Change Menu Item Name: </p>
+<input type='radio' name="True" value="True" > Yes
+<input type='radio'  name="True" value="False"> No
+</br><input type="submit" value="Submit">
+
+<label class="switch">
+  <input type="checkbox">
+  <div class="slider round"></div>
+</label>
+
+</form>
+
+</body></html>
