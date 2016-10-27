@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<!-- inserts script in the DOM -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
+
+		<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer> </script>
+		
+		<body>
+
+			<div id = "signinButton">
+				<span class = "g-signin" data-scope ="openid" data-clientid = "PLACE YOUR CLIENT ID HERE!" data-redirecturi = "postmessage" data-accesstype = "offline" data-cookiepolicy="single_host_origin" data-callback="signInCallBack" data-approvalprompt="forced"></span>
+			</div>
+
+			<div id="result">
+				
+			</div>
+
+			<script>
+				function signInCallback(authresult){
+					if (authResult['code']){
+						// Hide the sign-in button now tha tthe user is authorized
+						$('#signinButton').attr('style', 'display.none');
+					}
+					/// Send the one-time-use code to the server, if the server repsonds, write a 'login successful' mesage to the web page and then redirect back to the main restaurants page
+					$.ajax({
+						type: "POST",
+						url :'/gconnect?state={{STATE}}',,
+						processData: false,
+						contentType: 'application/octet-stream; charset=utf-8'
+						data: authResult['code'],
+						success: function(result){
+							if (result) {
+								$("#result").html('Login Successful! </br>' + result + '</br> Redirecting...')
+								setTimeout(function(){
+									window.location.href = "/restaurant";
+								}, 4000);
+								} else if (authResult['error']) {
+									consol.log('There was an error: ' + authResult['error']);
+								} else {
+									$("#result").html('Failed to make a server-side call. Check yoru configuration and console.')	
+								}
+								}
+							}
+						}
+					});
+				}
+			</script>
+
+		</body>
+
+	</head>
+</html>
+
