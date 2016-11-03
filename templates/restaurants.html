@@ -8,7 +8,7 @@
     {% for restaurant in restaurants %}
         <h1>    
         {{restaurant.name}} </br>
-        <a href='{{url_for('restaurantMenu', restaurant_id = restaurant.id)}}'> Look at {{restaurant.name}}'s Menu </a>
+        <a href="{{url_for('showMenu' , restaurant_id = restaurant.id)}}"> Look at {{restaurant.name}}'s Menu </a>
         {% for item in items %}
         {% if item.restaurant_id == restaurant.id %}
         <ul>
