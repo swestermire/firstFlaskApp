@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1> Creating a new restaurant </h1>
+
+<p> Input New Restaurant's Name </p>
+
+<form action = "{{url_for('newRestaurant') }}" method ='post'>
+	<input type = 'text' name = 'name'>
+	<input type = 'submit' value = 'Submit'>
+</form>
+
+
+{% endblock %}
